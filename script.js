@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .from(".nav-links li", { y: -20, opacity: 0, stagger: 0.1, duration: 0.8 }, "-=0.5")
       .from(".hero-left", { x: -50, opacity: 0, duration: 1 }, "-=0.6")
       // We animate the hero right side (Spline) slightly later
-      .from(".hero-right", { x: 50, opacity: 0, duration: 1.2 }, "-=1");
+      //   .from(".hero-right", { x: 50, opacity: 0, duration: 1.2 }, "-=1");
 
     // 3. SCROLL ANIMATIONS (For Work, About, Contact)
     const sections = document.querySelectorAll('.section-padding');
