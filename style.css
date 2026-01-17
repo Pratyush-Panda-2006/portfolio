@@ -1,6 +1,6 @@
 :root {
     --bg-dark: #050505;
-    --primary: #8338ec; /* Neon Purple */
+    --primary: #8338ec; /* Neon Purple */ 
     --secondary: #3a86ff; /* Neon Blue */
     --accent: #ff006e; /* Neon Pink */
     --glass: rgba(255, 255, 255, 0.05);
@@ -327,6 +327,63 @@ footer {
     text-align: center;
     color: var(--text-muted);
     font-size: 0.9rem;
+}
+/* --- GITHUB STATS --- */
+.github-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.stat-card {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ensure the cards are roughly the same size */
+    min-width: 320px; 
+    min-height: 200px;
+}
+
+.stat-card img {
+    width: 100%;
+    height: auto;
+    /* This filter forces the SVG text to pop against your dark background if needed */
+    filter: drop-shadow(0 0 10px rgba(131, 56, 236, 0.2));
+}
+
+/* Live Text Stats Styling */
+.live-stat-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    display: block;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .live-stat-container {
+        flex-direction: column;
+        gap: 30px;
+    }
 }
 
 /* =========================================
