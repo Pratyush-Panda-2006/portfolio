@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pratyush Panda</title>
-     
+    <title>Pratyush Panda | Full-Stack Developer & AI Engineer</title>
+    <meta name="description"
+        content="Portfolio of Pratyush Panda — Full-Stack Developer, AI/ML Engineer, and Open Source enthusiast building modern web applications and intelligent systems." />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <link rel="stylesheet" href="./style.css" />
 </head>
+
 <body>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
 
     <nav class="glass-nav">
         <div class="logo">PRATYUSH PANDA</div>
-        
+
         <input type="checkbox" id="menu-toggle">
-        
+
         <label class="menu-toggle" for="menu-toggle">
             <span></span><span></span><span></span>
         </label>
-        
+
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#work">Work</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -40,8 +50,8 @@
                 <div class="badge">FULL-STACK DEVELOPER</div>
                 <h1>Experience the <span class="gradient-text">Future</span> of Digital Innovation</h1>
                 <p>
-                    I build Fullstack websites and AI & ML-driven applications 
-                    that transform data into reality.
+                    I'm a <span id="typed-text" class="typed-highlight"></span><span class="typed-cursor">|</span><br>
+                    — building Fullstack apps and AI/ML-driven systems that transform data into reality.
                 </p>
                 <div class="cta-group">
                     <a href="#work" class="cta-button primary">View Work <i class="fa-solid fa-arrow-right"></i></a>
@@ -50,103 +60,306 @@
             </div>
 
             <div class="hero-right">
-                <spline-viewer
-                    class="cube"
-                    url="https://prod.spline.design/B0dmObkxnWXHYRdo/scene.splinecode">
+                <spline-viewer class="cube" url="https://prod.spline.design/B0dmObkxnWXHYRdo/scene.splinecode">
                 </spline-viewer>
             </div>
         </div>
     </section>
 
+    <!-- ===================== WORK SECTION ===================== -->
     <section id="work" class="section-padding">
         <div class="section-header">
             <h2 class="section-title">Selected <span class="gradient-text">Works</span></h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 1rem auto 0;">
+                A curated collection of projects spanning full-stack web, AI agents, and ML systems.
+            </p>
         </div>
 
         <div class="project-grid">
             <div class="glass-card project-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
                 <div class="card-content">
+                    <div class="project-number">01</div>
                     <h3>QRStudioFlow</h3>
-                    <p>An application for dynamic QR code generation and management which It supports a wide array of content—including URLs, Wi-Fi credentials, and WhatsApp links—while offering branding tools to embed custom logos without sacrificing scannability.</p>
+                    <p>An application for dynamic QR code generation and management. Supports URLs, Wi-Fi credentials,
+                        and WhatsApp links—with branding tools to embed custom logos without sacrificing scannability.
+                    </p>
                     <div class="tech-stack">
                         <span>HTML</span><span>CSS</span><span>JavaScript</span>
                     </div>
                     <div class="card-links">
-                        <a href="https://github.com/Pratyush-Panda-2006/QRStudioFlow"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://pratyush-panda-2006.github.io/QRStudioFlow/"><i class="fa-solid fa-link"></i></a>
+                        <a href="https://github.com/Pratyush-Panda-2006/QRStudioFlow" title="GitHub"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="https://pratyush-panda-2006.github.io/QRStudioFlow/" title="Live Demo"><i
+                                class="fa-solid fa-link"></i></a>
                     </div>
                 </div>
             </div>
 
             <div class="glass-card project-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
                 <div class="card-content">
+                    <div class="project-number">02</div>
+                    <h3>ScamSentinel</h3>
+                    <p>AI-powered scam detection platform with a direct-conversation AI agent interface. Users can chat
+                        with the AI to detect potential scammers in real time using NLP and behavioral analysis.</p>
+                    <div class="tech-stack">
+                        <span>Python</span><span>Gemini API</span><span>Flask</span><span>NLP</span>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://github.com/Pratyush-Panda-2006/ScamSentinel" title="GitHub"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="https://scamsentinel.streamlit.app/" title="Live Demo"><i
+                                class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card project-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                <div class="card-content">
+                    <div class="project-number">03</div>
                     <h3>BlogBot</h3>
-                    <p>Developed an AI-powered system that automates the end-to-end lifecycle of blog post creation. By moving beyond single-prompt interactions, this project leverages a multi-agent architecture to handle complex reasoning and refinement.</p>
+                    <p>An AI-powered system that automates the end-to-end lifecycle of blog post creation. Leverages a
+                        multi-agent architecture to handle complex reasoning, drafting, and refinement.</p>
                     <div class="tech-stack">
                         <span>Python</span><span>LLM</span><span>REST API</span><span>AI Agents</span>
                     </div>
                     <div class="card-links">
-                        <a href="https://github.com/Pratyush-Panda-2006/Ai-agent"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://github.com/Pratyush-Panda-2006/Ai-agent" title="GitHub"><i
+                                class="fa-brands fa-github"></i></a>
                     </div>
                 </div>
             </div>
 
             <div class="glass-card project-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
                 <div class="card-content">
+                    <div class="project-number">04</div>
                     <h3>Cattle vs Buffalo</h3>
-                    <p>Built for SIH Hackathon. Originally a React/Node stack, pivoted to a custom ML approach. Replaced third-party API with Python/Flask backend and a specialized model trained via Roboflow to advance through 3 rigorous rounds.</p>
+                    <p>Built for SIH Hackathon. Originally a React/Node stack, pivoted to a custom ML approach. Replaced
+                        third-party API with Python/Flask backend and a specialized model trained via Roboflow —
+                        advancing through 3 rigorous rounds.</p>
                     <div class="tech-stack">
                         <span>Python</span><span>React</span><span>Node</span><span>Flask</span><span>RoboFlow</span>
                     </div>
                     <div class="card-links">
-                        <a href="https://github.com/Pratyush-Panda-2006/SIH-2025-Files"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://github.com/Pratyush-Panda-2006/SIH-2025-Files" title="GitHub"><i
+                                class="fa-brands fa-github"></i></a>
                     </div>
                 </div>
             </div>
 
             <div class="glass-card project-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
                 <div class="card-content">
+                    <div class="project-number">05</div>
                     <h3>TOMATO</h3>
-                    <p>Full-stack food delivery application built using the MERN stack. Allows customers to browse menus, manage a dynamic cart, and complete secure payments. Includes a powerful admin panel for real-time order tracking.</p>
+                    <p>Full-stack food delivery application built with MERN stack. Customers browse menus, manage a
+                        dynamic cart, and complete secure payments. Includes a powerful admin panel for real-time order
+                        tracking.</p>
                     <div class="tech-stack">
                         <span>React.js</span><span>Node.js</span><span>MongoDB</span><span>Bootstrap</span>
                     </div>
                     <div class="card-links">
-                        <a href="https://github.com/Pratyush-Panda-2006/Projects/tree/main/foodapp"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://pratyush-panda-2006.github.io/Projects/foodapp/"><i class="fa-solid fa-link"></i></a>
+                        <a href="https://github.com/Pratyush-Panda-2006/Projects/tree/main/foodapp" title="GitHub"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="https://pratyush-panda-2006.github.io/Projects/foodapp/" title="Live Demo"><i
+                                class="fa-solid fa-link"></i></a>
                     </div>
                 </div>
             </div>
 
             <div class="glass-card project-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
                 <div class="card-content">
-                    <h3>CARA</h3>
-                    <p>Responsive eCommerce website built with HTML, CSS, and JavaScript. Features include product listings, categories, shopping cart design, and a modern UI for smooth user experience.</p>
-                    <div class="tech-stack">
-                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
-                    </div>
-                    <div class="card-links">
-                        <a href="https://github.com/Pratyush-Panda-2006/Projects/tree/main/cara"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://pratyush-panda-2006.github.io/Projects/cara/"><i class="fa-solid fa-link"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="glass-card project-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
-                <div class="card-content">
+                    <div class="project-number">06</div>
                     <h3>Phalahaar</h3>
-                    <p>A clean, visually-driven layout to showcase products with an intuitive navigation system. Serves as a central hub for customer engagement and online sales.</p>
+                    <p>A production e-commerce website with clean, visually-driven product layouts, wishlist
+                        functionality, WhatsApp integration, FAQ page, and cookie consent — serving as a live hub for
+                        customer engagement.</p>
                     <div class="tech-stack">
                         <span>HTML</span><span>CSS</span><span>JavaScript</span>
                     </div>
                     <div class="card-links">
-                        <a href="https://phalahaar.ct.ws/index.html"><i class="fa-solid fa-link"></i></a>
+                        <a href="https://github.com/Pratyush-Panda-2006/Phalahaar" title="GitHub"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="https://pratyush-panda-2006.github.io/Phalahaar/" title="Live Site"><i
+                                class="fa-solid fa-link"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ===================== SKILLS SECTION ===================== -->
+    <section id="skills" class="section-padding">
+        <div class="section-header">
+            <h2 class="section-title">Skills & <span class="gradient-text">Expertise</span></h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 1rem auto 0;">
+                Technologies I work with, refined through real-world projects and continuous learning.
+            </p>
+        </div>
+
+        <div class="skills-section-wrapper">
+
+            <!-- Category: Frontend -->
+            <div class="skill-category glass-card">
+                <div class="skill-cat-header">
+                    <i class="fa-solid fa-paintbrush skill-cat-icon"></i>
+                    <h3>Frontend</h3>
+                </div>
+                <div class="skill-bars">
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>React.js</span><span class="skill-pct">88%</span></div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="88"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>HTML & CSS</span><span class="skill-pct">95%</span></div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>JavaScript</span><span class="skill-pct">85%</span></div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>Bootstrap</span><span class="skill-pct">80%</span></div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="80"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Backend -->
+            <div class="skill-category glass-card">
+                <div class="skill-cat-header">
+                    <i class="fa-solid fa-server skill-cat-icon"></i>
+                    <h3>Backend</h3>
+                </div>
+                <div class="skill-bars">
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>Node.js / Express</span><span class="skill-pct">82%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="82"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>Python / Flask</span><span class="skill-pct">90%</span></div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>MongoDB</span><span class="skill-pct">75%</span></div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>REST APIs</span><span class="skill-pct">88%</span></div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="88"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: AI / ML -->
+            <div class="skill-category glass-card">
+                <div class="skill-cat-header">
+                    <i class="fa-solid fa-brain skill-cat-icon"></i>
+                    <h3>AI / ML</h3>
+                </div>
+                <div class="skill-bars">
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>LLM & AI Agents</span><span class="skill-pct">80%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>Gemini / OpenAI API</span><span class="skill-pct">85%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>Roboflow / CV</span><span class="skill-pct">70%</span></div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="70"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-label"><span>Data Science</span><span class="skill-pct">75%</span></div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="75"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===================== TIMELINE / ACHIEVEMENTS ===================== -->
+    <section id="achievements" class="section-padding">
+        <div class="section-header">
+            <h2 class="section-title">My <span class="gradient-text">Journey</span></h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 1rem auto 0;">
+                Key milestones that have shaped me as a developer and engineer.
+            </p>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-card">
+                    <span class="timeline-date">2026</span>
+                    <h3>Full-Stack & AI Portfolio</h3>
+                    <p>Developed and deployed multiple production-ready applications spanning full-stack web
+                        development, AI agents, and computer vision — showcased in this portfolio.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-card">
+                    <span class="timeline-date">2025</span>
+                    <h3>SIH Hackathon — 3 Rounds</h3>
+                    <p>Represented my college at Smart India Hackathon 2025. Built a real-time cattle vs buffalo
+                        classifier using Roboflow + Flask, advancing through 3 highly competitive rounds.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-card">
+                    <span class="timeline-date">2025</span>
+                    <h3>Launched Phalahaar (Live E-Commerce)</h3>
+                    <p>Designed and deployed a real-world e-commerce website for a local business, complete with product
+                        catalog, wishlist, and WhatsApp ordering — actively used by real customers.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-card">
+                    <span class="timeline-date">2025</span>
+                    <h3>Started B.Tech in Computer Science</h3>
+                    <p>Began my Computer Science engineering degree, diving deep into algorithms, data structures,
+                        databases, and modern web development from day one.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===================== GITHUB STATS ===================== -->
     <section class="section-padding" id="github-stats">
         <div class="section-header">
             <h2 class="section-title">Open Source <span class="gradient-text">Activity</span></h2>
@@ -155,46 +368,58 @@
             </p>
         </div>
 
-        <div class="github-grid">  
+        <div class="github-grid">
             <div class="glass-card stat-card" data-tilt>
-                <img    
-                    src="https://github-readme-stats-sigma-five.vercel.app/api?username=Pratyush-Panda-2006&show_icons=true&theme=radical&hide_border=true&include_all_commits=true&count_private=true"
-                    alt="Pratyush's GitHub Stats" 
-                    loading="lazy"
-                >
+                <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=Pratyush-Panda-2006&show_icons=true&theme=radical&hide_border=true&include_all_commits=true&count_private=true"
+                    alt="Pratyush's GitHub Stats" loading="lazy">
             </div>
 
             <div class="glass-card stat-card" data-tilt>
-                <img 
-                    src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Pratyush-Panda-2006&layout=compact&theme=radical&hide_border=true&langs_count=8"
-                    alt="Top Languages" 
-                    loading="lazy"
-                >
+                <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Pratyush-Panda-2006&layout=compact&theme=radical&hide_border=true&langs_count=8"
+                    alt="Top Languages" loading="lazy">
             </div>
         </div>
-        
+
         <div class="live-stat-container">
             <div class="live-stat">
                 <span id="repo-count" class="gradient-text stat-number">--</span>
                 <span class="stat-label">Public Repositories</span>
             </div>
         </div>
-</section>
+    </section>
 
+    <!-- ===================== ABOUT SECTION ===================== -->
     <section id="about" class="section-padding">
         <div class="about-container glass-card">
             <div class="about-text">
                 <span class="badge">About Me</span>
                 <h2>Bridging <span class="gradient-text">Data</span> and Design</h2>
                 <p>
-                    Welcome to my portfolio! I am a dedicated and passionate Computer Science student with a strong background in <strong>FullStack</strong>, <strong> Data Science</strong> and <strong>AI&ML</strong>.
+                    Welcome to my portfolio! I am a dedicated Computer Science student with a strong background in
+                    <strong>Full-Stack Development</strong>, <strong>Data Science</strong>, and <strong>AI&ML</strong>.
                 </p>
                 <p>
-                    I thrive in environments where I can tackle challenging problems and contribute to meaningful projects. I specialize in building clean, modern interfaces paired with robust backend logic.
+                    I thrive in environments where I can tackle challenging problems and contribute to meaningful
+                    projects. I specialize in building clean, modern interfaces paired with robust backend logic.
                 </p>
                 <p>
-                    When I'm not coding, you can find me <strong> exploring nature </strong>or experimenting with new <strong> tech stacks</strong>.
+                    When I'm not coding, you can find me <strong>exploring nature</strong> or experimenting with new
+                    <strong>tech stacks</strong>.
                 </p>
+
+                <div class="education-block">
+                    <div class="education-item">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <div>
+                            <span class="edu-degree">B.Tech — Computer Science & Engineering</span>
+                            <span class="edu-school">2025 – Present</span>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="cta-button primary resume-btn" onclick="alert('Resume download coming soon!')">
+                    <i class="fa-solid fa-download"></i> Download Resume
+                </a>
             </div>
             <div class="skills-grid">
                 <div class="skill-item"><i class="fa-brands fa-react"></i> React</div>
@@ -206,27 +431,30 @@
                 <div class="skill-item"><i class="fa-brands fa-css3"></i> CSS</div>
                 <div class="skill-item"><i class="fa-brands fa-square-js"></i> JavaScript</div>
                 <div class="skill-item"><i class="fa-brands fa-bootstrap"></i> Bootstrap</div>
+                <div class="skill-item"><i class="fa-solid fa-brain"></i> AI/ML</div>
             </div>
-        </div>     
+        </div>
     </section>
 
+    <!-- ===================== CONTACT SECTION ===================== -->
     <section id="contact" class="section-padding">
         <div class="contact-wrapper">
             <h2>Let's create something <br><span class="gradient-text">Extraordinary.</span></h2>
             <p>Have a project in mind? Let's connect.</p>
-            
-            <a href="mailto:pandapratyush221@example.com" class="cta-button primary big-btn">
+
+            <a href="mailto:pandapratyush221@gmail.com" class="cta-button primary big-btn">
                 Say Hello <i class="fa-regular fa-envelope"></i>
             </a>
 
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/pratyush-panda2006/"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://github.com/Pratyush-Panda-2006"><i class="fa-brands fa-github"></i></a>
-                <a href="https://instagram.com/tf_pratyush"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/pratyush-panda2006/" title="LinkedIn"><i
+                        class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://github.com/Pratyush-Panda-2006" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://instagram.com/tf_pratyush" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </div>
         <footer>
-            <p>&copy; 2026 Pratyush Panda. Made with code & creativity.</p>
+            <p>&copy; 2026 Pratyush Panda. Made with code &amp; creativity.</p>
         </footer>
     </section>
 
@@ -234,7 +462,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-    
+
     <script src="./script.js"></script>
 </body>
+
 </html>
