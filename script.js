@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let delay = isDeleting ? 60 : 110;
 
         if (!isDeleting && charIdx === currentRole.length) {
-            delay = 1800; // pause at end
+            delay = 1800;
             isDeleting = true;
         } else if (isDeleting && charIdx === 0) {
             isDeleting = false;
@@ -48,78 +48,44 @@ document.addEventListener('DOMContentLoaded', () => {
     type();
 
     // =============================================
-    // 3. GSAP + ScrollTrigger
+    // 3. SCROLL REVEAL (IntersectionObserver)
     // =============================================
-    gsap.registerPlugin(ScrollTrigger);
+    const revealElements = document.querySelectorAll('.reveal');
 
-    // Hero entrance
-    const tl = gsap.timeline();
-    tl.from(".logo", { y: -20, opacity: 0, duration: 1 })
-        .from(".nav-links li", { y: -20, opacity: 0, stagger: 0.1, duration: 0.8 }, "-=0.5")
-        .from(".hero-left", { x: -50, opacity: 0, duration: 1 }, "-=0.6");
-
-    // Section fade-ins
-    const sections = document.querySelectorAll('.section-padding');
-    sections.forEach(section => {
-        gsap.from(section.children, {
-            scrollTrigger: {
-                trigger: section,
-                start: "top 80%",
-                toggleActions: "play none none reverse"
-            },
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            stagger: 0.2
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
         });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
     });
 
-    // Timeline items stagger
-    gsap.from(".timeline-item", {
-        scrollTrigger: {
-            trigger: ".timeline",
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-        },
-        x: -40,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.18
-    });
+    revealElements.forEach(el => revealObserver.observe(el));
 
     // =============================================
-    // 4. SKILL BAR FILL (IntersectionObserver)
+    // 4. SKILL BAR FILL
     // =============================================
     const skillSection = document.getElementById('skills');
     if (skillSection) {
-        const observer = new IntersectionObserver((entries) => {
+        const skillObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     document.querySelectorAll('.skill-bar-fill').forEach(bar => {
                         const target = bar.getAttribute('data-width');
                         bar.style.width = target + '%';
                     });
-                    observer.unobserve(entry.target);
+                    skillObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.2 });
-        observer.observe(skillSection);
+        skillObserver.observe(skillSection);
     }
 
     // =============================================
-    // 5. VANILLA TILT
-    // =============================================
-    if (typeof VanillaTilt !== 'undefined') {
-        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-            max: 10,
-            speed: 400,
-            glare: true,
-            "max-glare": 0.1,
-        });
-    }
-
-    // =============================================
-    // 6. MOBILE MENU — Close on nav link click
+    // 5. MOBILE MENU — Close on nav link click
     // =============================================
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.querySelectorAll('.nav-links a');
@@ -133,7 +99,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =============================================
-    // 7. GITHUB STATS (Fetch API)
+    // 6. SMOOTH SCROLL for nav links
+    // =============================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // =============================================
+    // 7. CARD HOVER JIGGLE on interactive cards
+    // =============================================
+    const interactiveCards = document.querySelectorAll('.feature-card, .timeline-content, .polaroid');
+    interactiveCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = 'all 0.3s ease';
+        });
+    });
+
+    // =============================================
+    // 8. GITHUB STATS (Fetch API)
     // =============================================
     const username = 'Pratyush-Panda-2006';
     const repoElement = document.getElementById('repo-count');
@@ -159,4 +151,25 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         window.requestAnimationFrame(step);
     }
+
+    // =============================================
+    // 9. NAVBAR SHADOW ON SCROLL
+    // =============================================
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.style.boxShadow = '6px 6px 0px 0px #1a1a1a';
+        } else {
+            nav.style.boxShadow = '6px 6px 0px 0px #1a1a1a';
+        }
+    });
+
+    // =============================================
+    // 10. STAGGER REVEAL for project items
+    // =============================================
+    const projectItems = document.querySelectorAll('.project-item');
+    projectItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.1}s`;
+    });
+
 });
