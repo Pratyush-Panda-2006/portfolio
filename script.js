@@ -1,14 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // =============================================
-    // 1. SCROLL PROGRESS BAR
+    // 1. SCROLL PROGRESS BAR — Dynamic Color
     // =============================================
     const scrollBar = document.getElementById('scroll-progress');
+    const themeColors = [
+        { stop: 0, color: '#fb923c' }, // orange
+        { stop: 25, color: '#d4a733' }, // gold
+        { stop: 50, color: '#60a5fa' }, // blue
+        { stop: 75, color: '#ef4444' }, // red
+        { stop: 100, color: '#f78da7' }  // pink
+    ];
+
+    function getScrollColor(progress) {
+        // Find the two color stops we're between
+        let lower = themeColors[0], upper = themeColors[themeColors.length - 1];
+        for (let i = 0; i < themeColors.length - 1; i++) {
+            if (progress >= themeColors[i].stop && progress <= themeColors[i + 1].stop) {
+                lower = themeColors[i];
+                upper = themeColors[i + 1];
+                break;
+            }
+        }
+        // Interpolate between two hex colors
+        const range = upper.stop - lower.stop || 1;
+        const t = (progress - lower.stop) / range;
+        const lc = hexToRgb(lower.color), uc = hexToRgb(upper.color);
+        const r = Math.round(lc.r + (uc.r - lc.r) * t);
+        const g = Math.round(lc.g + (uc.g - lc.g) * t);
+        const b = Math.round(lc.b + (uc.b - lc.b) * t);
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    function hexToRgb(hex) {
+        const bigint = parseInt(hex.slice(1), 16);
+        return { r: (bigint >> 16) & 255, g: (bigint >> 8) & 255, b: bigint & 255 };
+    }
+
     window.addEventListener('scroll', () => {
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
         scrollBar.style.width = progress + '%';
+        scrollBar.style.background = getScrollColor(progress);
     });
 
     // =============================================
@@ -64,25 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
-
-    // =============================================
-    // 4. SKILL BAR FILL
-    // =============================================
-    const skillSection = document.getElementById('skills');
-    if (skillSection) {
-        const skillObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    document.querySelectorAll('.skill-bar-fill').forEach(bar => {
-                        const target = bar.getAttribute('data-width');
-                        bar.style.width = target + '%';
-                    });
-                    skillObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-        skillObserver.observe(skillSection);
-    }
 
     // =============================================
     // 5. MOBILE MENU — Close on nav link click
@@ -171,5 +186,22 @@ document.addEventListener('DOMContentLoaded', () => {
     projectItems.forEach((item, index) => {
         item.style.transitionDelay = `${index * 0.1}s`;
     });
+
+    // =============================================
+    // 11. CONTACT FORM — mailto handler
+    // =============================================
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+
+            const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+            window.location.href = `mailto:pandapratyush221@gmail.com?subject=${subject}&body=${body}`;
+        });
+    }
 
 });
