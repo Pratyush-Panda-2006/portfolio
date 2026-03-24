@@ -190,18 +190,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // =============================================
     // 11. CONTACT FORM — mailto handler
     // =============================================
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const name = document.getElementById('contact-name').value.trim();
-            const email = document.getElementById('contact-email').value.trim();
-            const message = document.getElementById('contact-message').value.trim();
-
-            const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
-            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-            window.location.href = `mailto:pandapratyush221@gmail.com?subject=${subject}&body=${body}`;
-        });
-    }
 
 });
