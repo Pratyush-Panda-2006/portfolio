@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import chaptersData from '@/data/chapters.json';
 import {
   DownloadIcon,
@@ -42,14 +43,23 @@ export const HeaderNav: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-40 px-4 sm:px-8 py-3 flex items-center justify-between pointer-events-none">
       
-      {/* Left: Name Logo (Only "Pratyush Panda") */}
+      {/* Left: Name Logo & Circular Seal */}
       <div className="pointer-events-auto flex items-center">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="font-serif font-black text-2xl tracking-tight text-ink-primary hover:opacity-85 transition select-none cursor-pointer text-left"
+          className="font-serif font-black text-2xl tracking-tight text-ink-primary hover:opacity-85 transition select-none cursor-pointer text-left flex items-center gap-2.5 group"
           title="Pratyush Panda — Home"
         >
-          Pratyush Panda
+          <div className="relative w-8 h-8 rounded-full overflow-hidden border border-paper-border/80 shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+            <Image
+              src="/seal.png"
+              alt="Pratyush Panda Stamp Seal"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+          <span>Pratyush Panda</span>
         </button>
       </div>
 
