@@ -1,8 +1,8 @@
 {
-  "name": "portfolio---1-trial",
+  "name": "pratyush-panda-portfolio",
   "version": "1.0.0",
-  "description": "",
-  "main": "script.js",
+  "private": true,
+  "description": "High-performance visual journalism portfolio of Pratyush Panda",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
