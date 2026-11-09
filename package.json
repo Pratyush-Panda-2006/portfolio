@@ -1,0 +1,40 @@
+{
+  "name": "portfolio---1-trial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "generate-assets": "node scripts/generate-assets.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pratyush-Panda-2006/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Pratyush-Panda-2006/portfolio/issues"
+  },
+  "homepage": "https://github.com/Pratyush-Panda-2006/portfolio#readme",
+  "dependencies": {
+    "autoprefixer": "^10.6.1",
+    "lucide-react": "^1.61.0",
+    "next": "^14.2.35",
+    "postcss": "^8.5.31",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^3.4.19"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^5.4.5"
+  }
+}

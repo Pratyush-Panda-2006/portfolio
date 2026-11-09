@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400..800;1,6..72,400..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper-bg: #EAE6DF;
+  --paper-aged: #E2DDD4;
+  --paper-card: #FAF8F5;
+  --paper-border: #D5CFC3;
+  --ink-primary: #111111;
+  --ink-muted: #4A463F;
+  --ink-faint: #7A756D;
+  --highlight-yellow: #FFE600;
+  --marker-red: #DC2626;
+  --marker-blue: #1D4ED8;
+  --marker-yellow: #F59E0B;
+  --tape-color: #E6DCB8;
+  --grain-x: 0px;
+  --grain-y: 0px;
+}
+
+html {
+  scroll-behavior: auto;
+  background-color: #EAE6DF;
+  color: #111111;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+body {
+  background-color: #EAE6DF;
+  color: #111111;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   GLOBAL GRAIN & PAPER BOIL SYSTEM
+   ───────────────────────────────────────────────────────────── */
+.vox-paper-bg {
+  background-color: #EAE6DF;
+  background-image: 
+    radial-gradient(ellipse at center, rgba(255,255,255,0.4) 0%, rgba(0,0,0,0.05) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+/* ─────────────────────────────────────────────────────────────
+   STRICT STAGE & CHAPTER CONTRACT
+   ───────────────────────────────────────────────────────────── */
+.vox-chapter {
+  position: relative;
+  width: 100%;
+}
+
+.vox-stage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   VOX PROGRESS ENGINE: CHILD TIME WINDOW UTILITY
+   --t = clamp(0, (var(--p, 0) - var(--a, 0)) / (var(--b, 1) - var(--a, 0)), 1)
+   ───────────────────────────────────────────────────────────── */
+.k {
+  --t: clamp(0, (var(--p, 0) - var(--a, 0)) / (var(--b, 1) - var(--a, 0)), 1);
+}
+
+/* Chapter Card Entrance & Tear-away (runs --a: 0.06; --b: 0.16;) */
+.vox-tear-card {
+  --tear-t: clamp(0, (var(--p, 0) - var(--a, 0.06)) / (var(--b, 0.16) - var(--a, 0.06)), 1);
+  transform: translateY(calc(var(--tear-t) * -125%)) rotate(calc(var(--r, 0deg) - 6deg * var(--tear-t)));
+  opacity: clamp(0, 1 - var(--tear-t) * 1.6, 1);
+  pointer-events: none;
+  transition: none;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   ANALOG ASSETS & CSS MASKS
+   ───────────────────────────────────────────────────────────── */
+
+/* Flat Chisel-Tip Highlighter Sweep */
+.vox-highlight {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.vox-highlight::before {
+  content: '';
+  position: absolute;
+  inset: -2px -4px;
+  background: #FFE600;
+  clip-path: inset(0 calc((1 - var(--t, 1)) * 100%) 0 0);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: -1;
+  transition: clip-path 0.05s linear;
+}
+
+/* Hand-Drawn Marker Circle with Dynamic Angle Wipe */
+.vox-circle {
+  position: absolute;
+  inset: -12px -16px;
+  background-color: var(--marker-color, #E63946);
+  -webkit-mask-image: 
+    url('/vox/circle.webp'),
+    conic-gradient(from 20deg, #000 calc(var(--t, 1) * 360deg), transparent 0);
+  mask-image: 
+    url('/vox/circle.webp'),
+    conic-gradient(from 20deg, #000 calc(var(--t, 1) * 360deg), transparent 0);
+  -webkit-mask-size: 100% 100%, cover;
+  mask-size: 100% 100%, cover;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Analog Slap Entrance Effect */
+.vox-slap {
+  --e: calc((1 - var(--t, 1)) * (1 - var(--t, 1)));
+  opacity: clamp(0, var(--t, 1) * 4, 1);
+  transform: rotate(calc(var(--r, 0deg) - 6deg * var(--e))) scale(calc(1 + 0.3 * var(--e)));
+  transform-origin: center center;
+}
+
+/* Pushpin Drop Animation */
+.vox-pin {
+  --t: clamp(0, (var(--p, 0) - var(--a, 0)) / (var(--b, 1) - var(--a, 0)), 1);
+  transform: translateY(calc((1 - var(--t)) * -40px)) scale(calc(1 + (1 - var(--t)) * 0.5));
+  opacity: clamp(0, var(--t) * 3, 1);
+}
+
+/* Polaroid / System Screenshot Slap Animation */
+.vox-card-slap {
+  --e: calc((1 - var(--t, 1)) * (1 - var(--t, 1)));
+  transform: rotate(calc(var(--r, 0deg) - 5deg * var(--e))) scale(calc(1 + 0.15 * var(--e)));
+  opacity: clamp(0, var(--t, 1) * 4, 1);
+  transform-origin: center center;
+}
+
+/* Chapter Intro Cover Card: tears away and flies off as user scrolls into stage */
+.vox-tear-card {
+  --t: clamp(0, (var(--p, 0) - var(--a, 0)) / (var(--b, 1) - var(--a, 0)), 1);
+  opacity: clamp(0, (1 - var(--t)) * 2, 1);
+  transform: translateY(calc(var(--t) * -160px)) rotate(calc(var(--r, 0deg) - var(--t) * 10deg)) scale(calc(1 - var(--t) * 0.1));
+  pointer-events: none;
+}
+
+/* Wobbly Analog Ink Filter strictly on static borders/lines/decor */
+.analog-wobble {
+  filter: url(#analog-wobble);
+}
+
+/* Noise overlay driven on twos (12 FPS) */
+.analog-grain-bg {
+  position: absolute;
+  inset: -240px;
+  width: calc(100% + 480px);
+  height: calc(100% + 480px);
+  background-image: url('/vox/paper.webp');
+  background-repeat: repeat;
+  background-position: var(--grain-x, 0px) var(--grain-y, 0px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Torn paper edge bottom */
+.torn-edge-b {
+  -webkit-mask-image: url('/vox/torn.webp');
+  mask-image: url('/vox/torn.webp');
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+/* Masking Tape Stems */
+.masking-tape {
+  position: absolute;
+  background-image: url('/vox/tape-1.webp');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.12));
+  z-index: 25;
+  pointer-events: none;
+}
+
+.masking-tape-2 {
+  position: absolute;
+  background-image: url('/vox/tape-2.webp');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.12));
+  z-index: 25;
+  pointer-events: none;
+}
+
+/* Pushpin asset */
+.pushpin {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background-image: url('/vox/pin.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 30;
+  pointer-events: none;
+  filter: drop-shadow(2px 6px 4px rgba(0, 0, 0, 0.25));
+}
+
+/* Typewriter Stamped Text */
+.typewriter-label {
+  font-family: 'Courier Prime', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Newsprint headline style */
+.editorial-headline {
+  font-family: 'Newsreader', Georgia, serif;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+/* Animations for Drawers and Modals */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   ACCESSIBILITY & REDUCED MOTION (prefers-reduced-motion: reduce)
+   ───────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  :root, *, *::before, *::after {
+    --p: 1 !important;
+    --t: 1 !important;
+  }
+  
+  .vox-stage {
+    position: relative !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  
+  .vox-camera,
+  .vox-camera-wrapper {
+    transform: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+  }
+  
+  .vox-track,
+  .vox-chapter {
+    height: auto !important;
+    min-height: 100svh !important;
+  }
+  
+  .vox-slap {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .vox-highlight::before {
+    clip-path: none !important;
+  }
+
+  [style*="clipPath"],
+  [style*="clip-path"] {
+    clip-path: none !important;
+  }
+  
+  .vox-circle {
+    -webkit-mask-image: url('/vox/circle.webp') !important;
+    mask-image: url('/vox/circle.webp') !important;
+  }
+
+  [style*="conic-gradient"] {
+    -webkit-mask-image: url('/vox/circle.webp') !important;
+    mask-image: url('/vox/circle.webp') !important;
+  }
+  
+  .vox-horizontal-track {
+    flex-direction: column !important;
+    overflow-x: visible !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .vox-horizontal-track > div {
+    width: 100% !important;
+    height: auto !important;
+    padding: 2rem 1rem !important;
+  }
+  
+  .vox-pin {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  
+  .vox-card-slap {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .vox-tear-card,
+  .vox-chapter-cover {
+    display: none !important;
+  }
+}

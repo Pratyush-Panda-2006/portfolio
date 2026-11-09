@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pratyushpanda.vercel.app/sitemap.xml
+

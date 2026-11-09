@@ -1,0 +1,200 @@
+{
+  "name": "Pratyush Panda",
+  "title": "Full-Stack Developer & AI Systems Engineer",
+  "headline": "Building agentic AI systems and distributed full-stack web applications.",
+  "subheadline": "National Rank #42 open-source contributor (GSSoC '26) & full-stack engineer. Crafting autonomous agents, multimodal vision tools, and reliable web architectures.",
+  "bio": "Dedicated Computer Science student and software engineer bridging human-centric design and autonomous intelligence. Specializing in high-performance full-stack web applications, agentic workflows, and multimodal AI pipelines.",
+  "location": "India",
+  "education": {
+    "degree": "B.Tech — Computer Science & Engineering",
+    "timeline": "2025 – Present",
+    "focus": "Algorithms, Distributed Systems, Multimodal AI & Web Architectures"
+  },
+  "contact": {
+    "email": "pandapratyush221@gmail.com",
+    "github": "https://github.com/Pratyush-Panda-2006",
+    "linkedin": "https://www.linkedin.com/in/pratyush-panda2006/",
+    "twitter": "https://x.com/tf_pratyush",
+    "instagram": "https://instagram.com/tf_pratyush",
+    "formspreeUrl": "https://formspree.io/f/xnjgvdya",
+    "resumeUrl": "/Resume.pdf"
+  },
+  "metrics": [
+    {
+      "id": "rank",
+      "value": "#42",
+      "total": "45,000+",
+      "label": "Top 50 Contributor Nationwide",
+      "sublabel": "GirlScript Summer of Code (GSSoC '26)",
+      "badge": "Top 0.1%",
+      "color": "#E63946"
+    },
+    {
+      "id": "hackathons",
+      "value": "30+",
+      "total": "Global & National",
+      "label": "Hackathons Completed",
+      "sublabel": "Google, Smart India Hackathon (SIH), AI Bharat",
+      "badge": "Sprint Champion",
+      "color": "#2A9D8F"
+    },
+    {
+      "id": "opensource",
+      "value": "3x",
+      "total": "GSSoC • SSoC • Nexus SoC",
+      "label": "Open Source Fellowships",
+      "sublabel": "Selected contributor across 3 national open-source cohorts in 2026",
+      "badge": "Core Contributor",
+      "color": "#E76F51"
+    },
+    {
+      "id": "degree",
+      "value": "B.Tech",
+      "total": "CSE '29",
+      "label": "Computer Science & Engineering",
+      "sublabel": "Algorithms, Systems Architecture, Neural Networks",
+      "badge": "Undergrad",
+      "color": "#457B9D"
+    }
+  ],
+  "projects": [
+    {
+      "id": "cyclonewatch",
+      "num": "01",
+      "title": "CycloneWatch AI",
+      "tagline": "Disaster Response Copilot & Real-Time Geospatial Triage",
+      "badge": "DISASTER COPILOT • REAL-TIME GEOSPATIAL TRIAGE",
+      "description": "Multimodal cyclone damage assessment and first-responder triage engine tailored for coastal emergency corridors. Processes live field damage imagery with Gemma 4 vision to extract incident severity, auto-extracts GPS EXIF metadata with fallback coastal geo-bounding, and streams real-time GeoJSON hazard overlays for command centers.",
+      "tech": ["FastAPI", "Gemma 4 Vision", "Python", "Leaflet GeoJSON"],
+      "image": "/image/cyclonewatch.png",
+      "category": "Disaster Copilot / Geospatial AI",
+      "links": {
+        "github": "https://github.com/Pratyush-Panda-2006/cyclonewatch-ai",
+        "live": "https://cyclonewatch-ai-frontend.vercel.app"
+      },
+      "highlights": [
+        "Multimodal Gemma 4 field damage assessment",
+        "GPS EXIF parsing with Odisha coastal geo-bounding",
+        "Sub-second GeoJSON emergency broadcast"
+      ]
+    },
+    {
+      "id": "kissanalert",
+      "num": "02",
+      "title": "KissanAlert",
+      "tagline": "Offline-First Agro-AI PWA & Irrigation Intelligence",
+      "badge": "UN SDG 2 & 15 • OFFLINE-FIRST PWA",
+      "description": "Offline-first progressive web application optimizing agricultural water conservation and crop diagnostics across 22 Indian regional languages. Combines real-time precipitation forecasts with multimodal Gemini vision for instant disease classification, water-stress detection, and localized soil remediation advisories.",
+      "tech": ["React 18", "Vite", "Tailwind CSS", "Gemini Pro Vision", "Service Workers"],
+      "image": "/image/kissanalert.png",
+      "category": "Offline PWA & Agro-AI",
+      "links": {
+        "github": "https://github.com/Pratyush-Panda-2006/KissanAlert",
+        "live": "https://kissanalert.vercel.app"
+      },
+      "highlights": [
+        "Offline-first PWA with Service Worker caching",
+        "Multimodal Gemini crop & water-stress diagnosis",
+        "Localization across 22 Indian regional languages"
+      ]
+    },
+    {
+      "id": "careerforge",
+      "num": "03",
+      "title": "CAREERFORGE",
+      "tagline": "Open Source Infrastructure & Isolated Showcases",
+      "badge": "OFFICIAL SELECTION • NEXUS SPRING OF CODE '26",
+      "description": "Contribution portal and isolated showcase platform built for NSoC '26. Engineered a single-repository isolated template architecture enabling safe, simultaneous multi-contributor pull requests. Features an automated zero-database 12-hour leaderboard synchronization engine using Octokit and strict CI/CD gatekeeper workflows.",
+      "tech": ["React 18", "TypeScript", "Tailwind CSS", "GitHub Actions", "CodeQL"],
+      "image": "/image/careerforge.png",
+      "category": "Open Source Infrastructure",
+      "links": {
+        "github": "https://github.com/Pratyush-Panda-2006/CAREERFORGE",
+        "live": "https://careerforgewebapp.vercel.app"
+      },
+      "highlights": [
+        "Isolated template architecture for safe concurrent PRs",
+        "Zero-database Octokit leaderboard sync every 12h",
+        "Strict CI/CD gatekeepers and CodeQL auditing"
+      ]
+    }
+  ],
+  "technicalSkills": {
+    "Programming Languages": [
+      "Java",
+      "JavaScript (ES6+)",
+      "Python",
+      "SQL",
+      "HTML5",
+      "CSS3"
+    ],
+    "Full-Stack Development": [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "REST APIs",
+      "Vite",
+      "Tailwind CSS"
+    ],
+    "AI & Data Science": [
+      "Machine Learning",
+      "Large Language Models (LLMs)",
+      "Prompt Engineering",
+      "Context Engineering",
+      "Gemini API"
+    ],
+    "Developer Tools": [
+      "Git",
+      "GitHub",
+      "Linux",
+      "Postman",
+      "Google Cloud Platform",
+      "VS Code"
+    ]
+  },
+  "softSkills": [
+    "Communication",
+    "Teamwork",
+    "Problem Solving",
+    "Adaptability"
+  ],
+  "snippets": [
+    {
+      "title": "Multimodal Geospatial Triage (CycloneWatch AI)",
+      "lang": "python",
+      "code": "async def triage_cyclone_damage(image_bytes: bytes, gps_coords: tuple[float, float]) -> IncidentReport:\n    # Gemma 4 multimodal damage assessment & severity classification\n    report = await gemma_vision.analyze(\n        image=image_bytes,\n        prompt=\"Identify infrastructure collapse, power grid hazard, and flood depth.\"\n    )\n    return stream_geojson_alert(report, fallback_bounds=ODISHA_COASTAL_BOUNDS)"
+    },
+    {
+      "title": "Vox Frame-Rate Independent Decay",
+      "lang": "typescript",
+      "code": "// 60+ FPS exponential camera smoothing\nconst dt = (now - lastTime) / 1000;\nbeat.p += (target - beat.p) * (1 - Math.exp(-dt * 9));\n\n// Stepped texture updates strictly on 'twos' (12 FPS)\nif (now - lastTextureTick > 1000 / 12) {\n  svgFilterTurbulence.setAttribute('seed', String(frame % 7));\n}"
+    }
+  ],
+  "openSourcePrograms": [
+    {
+      "name": "GirlScript Summer of Code (GSSoC '26)",
+      "rank": "Rank #42 / 45,000+",
+      "role": "Top 50 Nationwide Contributor",
+      "tag": "GSSoC '26"
+    },
+    {
+      "name": "Social Summer of Code (SSoC '26)",
+      "rank": "Selected Contributor",
+      "role": "Full-Stack & Systems",
+      "tag": "SSoC '26"
+    },
+    {
+      "name": "Nexus Spring of Code",
+      "rank": "Project Admin",
+      "role": "Project Admin & Core Maintainer",
+      "tag": "Nexus SoC"
+    },
+    {
+      "name": "Hacktoberfest 2026",
+      "rank": "Top 503 Globally / 115K+",
+      "role": "Completionist++ Fellow",
+      "tag": "Hacktoberfest '26"
+    }
+  ]
+}
